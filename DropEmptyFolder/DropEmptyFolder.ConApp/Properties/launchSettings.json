@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DropEmptyFolder.ConApp": {
+      "commandName": "Project",
+      "commandLineArgs": "Y:\\2020.01.09.10.52.53_testK"
+    }
+  }
+}
