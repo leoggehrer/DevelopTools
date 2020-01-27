@@ -47,7 +47,13 @@ namespace BaseCodeCopier.ConApp
 			// End: MusicStore
 
 			// Project: HolidayCount
-
+			sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "TravelCount", "Solution", "TravelCount");
+			targetPaths = new string[]
+			{
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "CommunityCount", "Solution", "CommunityCount"),
+			};
+			Paths.Add(sourcePath, targetPaths);
+			SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
 			// End: HolidayCount
 		}
 		private static string HomePath { get; }
@@ -55,6 +61,8 @@ namespace BaseCodeCopier.ConApp
 		private static Dictionary<string, string[]> SourceLabels { get; set; }
 		private static string SearchPattern => "*.cs";
 		private static string BaseCodeLabel => "//@BaseCode";
+		private static string QnSBaseCodeLabel => "//@QnSBaseCode";
+		private static string QnSCodeCopyLabel => "//@QnSCodeCopy";
 		private static string DomainCodeLabel => "//@DomainCode";
 		private static string CodeCopyLabel => "//@CodeCopy";
 		private static string[] Projects { get; } = new string[] { "CommonBase" };
