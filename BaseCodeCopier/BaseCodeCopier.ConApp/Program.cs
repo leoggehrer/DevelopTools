@@ -55,6 +55,26 @@ namespace BaseCodeCopier.ConApp
 			Paths.Add(sourcePath, targetPaths);
 			SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
 			// End: HolidayCount
+
+			//// Project: QnSIdentityServer
+			//sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
+			//targetPaths = new string[]
+			//{
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSIdentityServer", "Solution", "QnSIdentityServer"),
+			//};
+			//Paths.Add(sourcePath, targetPaths);
+			//SourceLabels.Add(sourcePath, new string[] { QnSBaseCodeLabel });
+			//// End: HolidayCount
+
+			// Project: QnSToDoList
+			sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
+			targetPaths = new string[]
+			{
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSToDoList", "Solution", "QnSToDoList"),
+			};
+			Paths.Add(sourcePath, targetPaths);
+			SourceLabels.Add(sourcePath, new string[] { QnSBaseCodeLabel });
+			// End: QnSToDoList
 		}
 		private static string HomePath { get; }
 		private static Dictionary<string, string[]> Paths { get; set; }
@@ -64,8 +84,10 @@ namespace BaseCodeCopier.ConApp
 		private static string QnSBaseCodeLabel => "//@QnSBaseCode";
 		private static string QnSCodeCopyLabel => "//@QnSCodeCopy";
 		private static string DomainCodeLabel => "//@DomainCode";
-		private static string CodeCopyLabel => "//@CodeCopy";
-		private static string[] Projects { get; } = new string[] { "CommonBase" };
+		private static string CodeCopyLabel => "//@CopyCode";
+		private static string[] CodeCopyLabels = new string[] { CodeCopyLabel, QnSCodeCopyLabel };
+
+		private static string[] Projects { get; } = new string[] { "CommonBase", "CSharpCodeGenerator.ConApp" };
 		private static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters" };
 		static void Main(string[] args)
 		{
@@ -154,9 +176,10 @@ namespace BaseCodeCopier.ConApp
 			{
 				var lines = File.ReadAllLines(targetFilePath, Encoding.Default);
 
-				if (lines.Any() && lines.First().StartsWith(CodeCopyLabel) == false)
+				canCopy = false;
+				if (lines.Any() && CodeCopyLabels.Any(l => lines.First().StartsWith(l)))
 				{
-					canCopy = false;
+					canCopy = true;
 				}
 			}
 			if (canCopy)
