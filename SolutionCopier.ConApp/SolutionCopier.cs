@@ -84,19 +84,10 @@ namespace SolutionCopier.ConApp
 
         private bool CreateTemplate(string sourceDirectory, string targetDirectory)
         {
-            if (Directory.Exists(targetDirectory))
+            if (Directory.Exists(targetDirectory) == false)
             {
-                try
-                {
-                    Directory.Delete(targetDirectory, true);
-                }
-                catch (Exception e)
-                {
-                    Logger($"\t\tERROR: {e.Message}");
-                    return false;
-                }
+                Directory.CreateDirectory(targetDirectory);
             }
-            Directory.CreateDirectory(targetDirectory);
 
             string sourceFolderName = new DirectoryInfo(sourceDirectory).Name;
             string targetFolderName = new DirectoryInfo(targetDirectory).Name;

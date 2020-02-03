@@ -17,44 +17,44 @@ namespace BaseCodeCopier.ConApp
 
 			Paths = new Dictionary<string, string[]>();
 			SourceLabels = new Dictionary<string, string[]>();
-			// Project: MusicStore
-			var sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartA", "Solution", "MusicStore");
-			var targetPaths = new string[]
-			{
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartB", "Solution", "MusicStore"),
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartC", "Solution", "MusicStore"),
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartD", "Solution", "MusicStore"),
-			};
-			Paths.Add(sourcePath, targetPaths);
-			SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
+			//// Project: MusicStore
+			//var sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartA", "Solution", "MusicStore");
+			//var targetPaths = new string[]
+			//{
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartB", "Solution", "MusicStore"),
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartC", "Solution", "MusicStore"),
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartD", "Solution", "MusicStore"),
+			//};
+			//Paths.Add(sourcePath, targetPaths);
+			//SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
 
-			sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartB", "Solution", "MusicStore");
-			targetPaths = new string[]
-			{
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartC", "Solution", "MusicStore"),
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartD", "Solution", "MusicStore"),
-			};
-			Paths.Add(sourcePath, targetPaths);
-			SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
+			//sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartB", "Solution", "MusicStore");
+			//targetPaths = new string[]
+			//{
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartC", "Solution", "MusicStore"),
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartD", "Solution", "MusicStore"),
+			//};
+			//Paths.Add(sourcePath, targetPaths);
+			//SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
 
-			sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartC", "Solution", "MusicStore");
-			targetPaths = new string[]
-			{
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartD", "Solution", "MusicStore"),
-			};
-			Paths.Add(sourcePath, targetPaths);
-			SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
-			// End: MusicStore
+			//sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartC", "Solution", "MusicStore");
+			//targetPaths = new string[]
+			//{
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "MusicStorePartD", "Solution", "MusicStore"),
+			//};
+			//Paths.Add(sourcePath, targetPaths);
+			//SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
+			//// End: MusicStore
 
-			// Project: HolidayCount
-			sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "TravelCount", "Solution", "TravelCount");
-			targetPaths = new string[]
-			{
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "CommunityCount", "Solution", "CommunityCount"),
-			};
-			Paths.Add(sourcePath, targetPaths);
-			SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
-			// End: HolidayCount
+			//// Project: HolidayCount
+			//sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "TravelCount", "Solution", "TravelCount");
+			//targetPaths = new string[]
+			//{
+			//	Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "CommunityCount", "Solution", "CommunityCount"),
+			//};
+			//Paths.Add(sourcePath, targetPaths);
+			//SourceLabels.Add(sourcePath, new string[] { BaseCodeLabel, DomainCodeLabel });
+			//// End: HolidayCount
 
 			//// Project: QnSIdentityServer
 			//sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
@@ -66,15 +66,17 @@ namespace BaseCodeCopier.ConApp
 			//SourceLabels.Add(sourcePath, new string[] { QnSBaseCodeLabel });
 			//// End: HolidayCount
 
-			// Project: QnSToDoList
-			sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
-			targetPaths = new string[]
+			// Project: QuickNSmart-Projects
+			var sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
+			var targetPaths = new string[]
 			{
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmartTest", "Solution", "QuickNSmartTest"),
 				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSToDoList", "Solution", "QnSToDoList"),
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSIdentityServer", "Solution", "QnSIdentityServer"),
 			};
 			Paths.Add(sourcePath, targetPaths);
 			SourceLabels.Add(sourcePath, new string[] { QnSBaseCodeLabel });
-			// End: QnSToDoList
+			// End: QuickNSmart-Projects
 		}
 		private static string HomePath { get; }
 		private static Dictionary<string, string[]> Paths { get; set; }
@@ -88,7 +90,7 @@ namespace BaseCodeCopier.ConApp
 		private static string[] CodeCopyLabels = new string[] { CodeCopyLabel, QnSCodeCopyLabel };
 
 		private static string[] Projects { get; } = new string[] { "CommonBase", "CSharpCodeGenerator.ConApp" };
-		private static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters" };
+		private static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters", ".ConApp" };
 		static void Main(string[] args)
 		{
 			string input;
