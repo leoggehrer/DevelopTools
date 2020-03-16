@@ -16,7 +16,6 @@ namespace SolutionCopier.ConApp
         private static string QnSBaseCodeLabel => "//@QnSBaseCode";
         private static string QnSCodeCopyLabel => "//@QnSCodeCopy";
 
-
         private static string[] IgnoreFolders = new string[]
         {
             "\\.vs"

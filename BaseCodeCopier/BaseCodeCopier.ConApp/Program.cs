@@ -70,9 +70,10 @@ namespace BaseCodeCopier.ConApp
 			var sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
 			var targetPaths = new string[]
 			{
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmartTest", "Solution", "QuickNSmartTest"),
-				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSToDoList", "Solution", "QnSToDoList"),
 				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSIdentityServer", "Solution", "QnSIdentityServer"),
+				//Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmartTest", "Solution", "QuickNSmartTest"),
+				//Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSToDoList", "Solution", "QnSToDoList"),
+				//Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSTravelCount", "Solution", "QnSTravelCount"),
 			};
 			Paths.Add(sourcePath, targetPaths);
 			SourceLabels.Add(sourcePath, new string[] { QnSBaseCodeLabel });
@@ -81,16 +82,17 @@ namespace BaseCodeCopier.ConApp
 		private static string HomePath { get; }
 		private static Dictionary<string, string[]> Paths { get; set; }
 		private static Dictionary<string, string[]> SourceLabels { get; set; }
-		private static string SearchPattern => "*.cs";
-		private static string BaseCodeLabel => "//@BaseCode";
-		private static string QnSBaseCodeLabel => "//@QnSBaseCode";
-		private static string QnSCodeCopyLabel => "//@QnSCodeCopy";
-		private static string DomainCodeLabel => "//@DomainCode";
-		private static string CodeCopyLabel => "//@CopyCode";
-		private static string[] CodeCopyLabels = new string[] { CodeCopyLabel, QnSCodeCopyLabel };
+		private static string SearchPattern => "*.css|*.cs|*.cshtml";
+		private static string[] SearchPatterns => SearchPattern.Split('|');
+		private static string QnSBaseCodeLabel => "@QnSBaseCode";
+		private static string OldCodeCopyLabel => "@CopyCode";
+		private static string CodeCopyLabel => "@CodeCopy";
+		private static string QnSCodeCopyLabel => "@QnSCodeCopy";
+		private static string DomainCodeLabel => "@DomainCode";
+		private static string[] CodeCopyLabels = new string[] { OldCodeCopyLabel, CodeCopyLabel, QnSCodeCopyLabel };
 
 		private static string[] Projects { get; } = new string[] { "CommonBase", "CSharpCodeGenerator.ConApp" };
-		private static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters", ".ConApp" };
+		private static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters", ".ConApp", ".AspMvc" };
 		static void Main(string[] args)
 		{
 			string input;
@@ -107,13 +109,17 @@ namespace BaseCodeCopier.ConApp
 				foreach (var path in Paths)
 				{
 					var sourceLabels = SourceLabels[path.Key];
-					var sourceCodeFiles = GetSourceCodeFiles(path.Key, SearchPattern, sourceLabels);
 
-					foreach (var targetPath in path.Value)
+					foreach (var searchPattern in SearchPatterns)
 					{
-						foreach (var sourceCodeFile in sourceCodeFiles)
+						var sourceCodeFiles = GetSourceCodeFiles(path.Key, searchPattern, sourceLabels);
+
+						foreach (var targetPath in path.Value)
 						{
-							CopySourceCodeFile(path.Key, sourceCodeFile, targetPath);
+							foreach (var sourceCodeFile in sourceCodeFiles)
+							{
+								CopySourceCodeFile(path.Key, sourceCodeFile, targetPath, sourceLabels);
+							}
 						}
 					}
 				}
@@ -159,15 +165,15 @@ namespace BaseCodeCopier.ConApp
 			}
 			return result;
 		}
-		private static bool CopySourceCodeFile(string sourcePath, string baseCodeFilePath, string targetPath)
+		private static bool CopySourceCodeFile(string sourcePath, string sourceFilePath, string targetPath, string[] sourceLabels)
 		{
 			bool result = false;
 			bool canCopy = true;
 			string sourceSolutionName = GetSolutionName(sourcePath);
 			string targetSolutionName = GetSolutionName(targetPath);
-			string sourceProjectName = GetProjectName(baseCodeFilePath, sourceSolutionName);
+			string sourceProjectName = GetProjectName(sourceFilePath, sourceSolutionName);
 			string targetProjectName = sourceProjectName.Replace(sourceSolutionName, targetSolutionName);
-			string targetFilePath = baseCodeFilePath.Replace(sourcePath, targetPath).Replace(sourceProjectName, targetProjectName);
+			string targetFilePath = sourceFilePath.Replace(sourcePath, targetPath).Replace(sourceProjectName, targetProjectName);
 			string targetFileFolder = Path.GetDirectoryName(targetFilePath);
 
 			if (Directory.Exists(targetFileFolder) == false)
@@ -179,20 +185,28 @@ namespace BaseCodeCopier.ConApp
 				var lines = File.ReadAllLines(targetFilePath, Encoding.Default);
 
 				canCopy = false;
-				if (lines.Any() && CodeCopyLabels.Any(l => lines.First().StartsWith(l)))
+				if (lines.Any() && CodeCopyLabels.Any(l => lines.First().Contains(l)))
 				{
 					canCopy = true;
 				}
 			}
 			if (canCopy)
 			{
-				var lines = new List<string>();
+				var cpyLines = new List<string>();
+				var srcLines = File.ReadAllLines(sourceFilePath, Encoding.Default)
+								   .Select(i => i.Replace(sourceSolutionName, targetSolutionName));
+				var srcFirst = srcLines.FirstOrDefault();
 
-				lines.Add(CodeCopyLabel);
-				lines.AddRange(File.ReadAllLines(baseCodeFilePath, Encoding.Default)
+				if (srcFirst != null)
+				{
+					var label = sourceLabels.FirstOrDefault(l => srcFirst.Contains(l));
+
+					cpyLines.Add(srcFirst.Replace(label ?? string.Empty, QnSCodeCopyLabel));
+				}
+				cpyLines.AddRange(File.ReadAllLines(sourceFilePath, Encoding.Default)
 								   .Skip(1)
 								   .Select(i => i.Replace(sourceSolutionName, targetSolutionName)));
-				File.WriteAllLines(targetFilePath, lines.ToArray(), Encoding.Default);
+				File.WriteAllLines(targetFilePath, cpyLines.ToArray(), Encoding.Default);
 			}
 			return result;
 		}
@@ -204,10 +218,11 @@ namespace BaseCodeCopier.ConApp
 			{
 				var lines = File.ReadAllLines(file, Encoding.Default);
 
-				if (lines.Any() && labels.Any(l => lines.First().StartsWith(l)))
+				if (lines.Any() && labels.Any(l => lines.First().Contains(l)))
 				{
 					result.Add(file);
 				}
+				System.Diagnostics.Debug.WriteLine($"{file}");
 			}
 			return result;
 		}

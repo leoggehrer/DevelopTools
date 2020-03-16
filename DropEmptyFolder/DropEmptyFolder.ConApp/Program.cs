@@ -9,7 +9,7 @@ namespace DropEmptyFolder.ConApp
 		private static void Main(string[] args)
 		{
 			PrintHeader();
-
+			DropEmptyFolder(@"Y:\2020.02.24.11.19.24_testK");
 			if (args.Length == 1)
 			{
 				if (Directory.Exists(args[0]))
