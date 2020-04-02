@@ -13,8 +13,8 @@ namespace SolutionCopier.ConApp
         public static Action<string> Logger { get; set; } = s => System.Diagnostics.Debug.WriteLine(s);
 
         private static char Separator { get; } = ';';
-        private static string QnSBaseCodeLabel => "//@QnSBaseCode";
-        private static string QnSCodeCopyLabel => "//@QnSCodeCopy";
+        private static string QnSBaseCodeLabel => "@QnSBaseCode";
+        private static string QnSCodeCopyLabel => "@QnSCodeCopy";
 
         private static string[] IgnoreFolders = new string[]
         {

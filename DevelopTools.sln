@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseCodeCopier.ConApp", "Ba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DropEmptyFolder.ConApp", "DropEmptyFolder\DropEmptyFolder.ConApp\DropEmptyFolder.ConApp.csproj", "{DF4AF02E-E2D7-401C-B361-87EBB71773F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionCopier.ConApp", "SolutionCopier.ConApp\SolutionCopier.ConApp.csproj", "{A04661F5-835F-45B8-AEB0-8C02ACDACC7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionCopier.ConApp", "SolutionCopier.ConApp\SolutionCopier.ConApp.csproj", "{A04661F5-835F-45B8-AEB0-8C02ACDACC7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildDockerfile.ConApp", "BuildDockerfile.ConApp\BuildDockerfile.ConApp.csproj", "{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A04661F5-835F-45B8-AEB0-8C02ACDACC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A04661F5-835F-45B8-AEB0-8C02ACDACC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A04661F5-835F-45B8-AEB0-8C02ACDACC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,8 +8,8 @@ namespace SolutionCopier.ConApp
         {
             Console.WriteLine("Solution copier!");
 
-            string sourcePath = @"C:\Users\ggehrer\Google Drive\Schule\CSharp\QuickNSmart\Solution\QuickNSmart";
-            string targetPath = @"C:\Users\ggehrer\Google Drive\Schule\CSharp\QnSInvoiceSystem\Solution\QnSInvoiceSystem";
+            string sourcePath = @"C:\Users\g.gehrer\Google Drive\Schule\CSharp\QuickNSmart\Solution\QuickNSmart";
+            string targetPath = @"C:\Users\g.gehrer\Google Drive\Schule\CSharp\QnSTranslator01\Solution\QnSTranslator01";
 
             var sc = new SolutionCopier();
 

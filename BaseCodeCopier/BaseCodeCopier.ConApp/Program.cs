@@ -70,8 +70,10 @@ namespace BaseCodeCopier.ConApp
 			var sourcePath = Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmart", "Solution", "QuickNSmart");
 			var targetPaths = new string[]
 			{
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmartTest", "Solution", "QuickNSmartTest"),
 				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSIdentityServer", "Solution", "QnSIdentityServer"),
-				//Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QuickNSmartTest", "Solution", "QuickNSmartTest"),
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSTranslator", "Solution", "QnSTranslator"),
+				Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSHolidayCalendar", "Solution", "QnSHolidayCalendar"),
 				//Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSToDoList", "Solution", "QnSToDoList"),
 				//Path.Combine(HomePath, "Google Drive", "Schule", "CSharp", "QnSTravelCount", "Solution", "QnSTravelCount"),
 			};
@@ -93,6 +95,7 @@ namespace BaseCodeCopier.ConApp
 
 		private static string[] Projects { get; } = new string[] { "CommonBase", "CSharpCodeGenerator.ConApp" };
 		private static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters", ".ConApp", ".AspMvc" };
+
 		static void Main(string[] args)
 		{
 			string input;
