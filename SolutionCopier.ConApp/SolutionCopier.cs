@@ -13,6 +13,7 @@ namespace SolutionCopier.ConApp
         public static Action<string> Logger { get; set; } = s => System.Diagnostics.Debug.WriteLine(s);
 
         private static char Separator { get; } = ';';
+        private static string QnSIgnoreLabel => "@QnSIgnore";
         private static string QnSBaseCodeLabel => "@QnSBaseCode";
         private static string QnSCodeCopyLabel => "@QnSCodeCopy";
 
@@ -171,9 +172,9 @@ namespace SolutionCopier.ConApp
 
             if (ReplaceExtensions.SingleOrDefault(i => i.Equals(extension, StringComparison.CurrentCultureIgnoreCase)) != null)
             {
-                string[] sourceLines = File.ReadAllLines(sourceFilePath, Encoding.Default);
-                List<string> targetLines = new List<string>();
-                Regex regex = new Regex(sourceSolutionName, RegexOptions.IgnoreCase);
+                var targetLines = new List<string>();
+                var sourceLines = File.ReadAllLines(sourceFilePath, Encoding.Default);
+                var regex = new Regex(sourceSolutionName, RegexOptions.IgnoreCase);
 
                 if (sourceFilePath.EndsWith("BlazorApp.csproj"))
                 {
@@ -189,14 +190,17 @@ namespace SolutionCopier.ConApp
                     }
                 }
 
-                foreach (var sourceLine in sourceLines)
+                if (sourceLines.Any() && sourceLines.First().Contains(QnSIgnoreLabel) == false)
                 {
-                    var targetLine = regex.Replace(sourceLine, targetSolutionName);
+                    foreach (var sourceLine in sourceLines)
+                    {
+                        var targetLine = regex.Replace(sourceLine, targetSolutionName);
 
-                    targetLine = targetLine.Replace(QnSBaseCodeLabel, QnSCodeCopyLabel);
-                    targetLines.Add(targetLine);
+                        targetLine = targetLine.Replace(QnSBaseCodeLabel, QnSCodeCopyLabel);
+                        targetLines.Add(targetLine);
+                    }
+                    File.WriteAllLines(targetFilePath, targetLines.ToArray(), Encoding.Default);
                 }
-                File.WriteAllLines(targetFilePath, targetLines.ToArray(), Encoding.Default);
             }
             else if (File.Exists(targetFilePath) == false)
             {
