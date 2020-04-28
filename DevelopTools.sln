@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DropEmptyFolder.ConApp", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionCopier.ConApp", "SolutionCopier.ConApp\SolutionCopier.ConApp.csproj", "{A04661F5-835F-45B8-AEB0-8C02ACDACC7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildDockerfile.ConApp", "BuildDockerfile.ConApp\BuildDockerfile.ConApp.csproj", "{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildDockerfile.ConApp", "BuildDockerfile.ConApp\BuildDockerfile.ConApp.csproj", "{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCodeAdjustment", "BaseCodeAdjustment\BaseCodeAdjustment.csproj", "{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

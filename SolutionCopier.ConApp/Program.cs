@@ -9,7 +9,7 @@ namespace SolutionCopier.ConApp
             Console.WriteLine("Solution copier!");
 
             string sourcePath = @"C:\Users\g.gehrer\Google Drive\Schule\CSharp\QuickNSmart\Solution\QuickNSmart";
-            string targetPath = @"C:\Users\g.gehrer\Google Drive\Schule\CSharp\QnSContactManager\Solution\QnSContactManager";
+            string targetPath = @"C:\Users\g.gehrer\Google Drive\Schule\CSharp\QnSMusicStore\Solution\QnSMusicStore";
 
             var sc = new SolutionCopier();
 
