@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace SolutionCopier.ConApp
+namespace QnSSolutionCopier.ConApp
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Solution copier!");
 

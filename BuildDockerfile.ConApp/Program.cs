@@ -30,20 +30,26 @@ namespace BuildDockerfile.ConApp
             do
             {
                 PrintHeader();
-                Console.Write($"Build [1..{Dockerfiles.Count + 1}|n]?: ");
+                Console.Write($"Build [1..{Dockerfiles.Count + 1}|X]?: ");
                 var input = Console.ReadLine();
 
-                running = Int32.TryParse(input, out int number);
+                running = input.Equals("x", StringComparison.CurrentCultureIgnoreCase) == false;
                 if (running)
                 {
-                    number--;
-                    if (number >= 0 && number < Dockerfiles.Count)
+                    var numbers = input.Split(',').Where(s => Int32.TryParse(s, out int n))
+                                       .Select(s => Int32.Parse(s))
+                                       .ToArray();
+
+                    foreach (var number in numbers)
                     {
-                        BuildDockerfile(Dockerfiles[number]);
-                    }
-                    else if (number == Dockerfiles.Count)
-                    {
-                        BuildDockerfiles(Paths);
+                        if (number == Dockerfiles.Count + 1)
+                        {
+                            BuildDockerfiles(Paths);
+                        }
+                        else if (number > 0 && number <= Dockerfiles.Count)
+                        {
+                            BuildDockerfile(Dockerfiles[number - 1]);
+                        }
                     }
                 }
             } while (running);

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using DevelopCommon;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using DevelopCommon;
 
-namespace BaseCodeAdjustment
+namespace QnSBaseCodeAdjustment.ConApp
 {
     internal class Program
     {
@@ -90,7 +90,7 @@ namespace BaseCodeAdjustment
         {
             Console.Clear();
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine($"{nameof(BaseCodeAdjustment)}:");
+            Console.WriteLine($"{nameof(QnSBaseCodeAdjustment)}:");
             Console.WriteLine("==========================================");
             Console.WriteLine();
             foreach (var path in Paths)
@@ -103,6 +103,5 @@ namespace BaseCodeAdjustment
             }
             Console.WriteLine();
         }
-
     }
 }

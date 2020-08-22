@@ -15,7 +15,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionCopier.ConApp", "So
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildDockerfile.ConApp", "BuildDockerfile.ConApp\BuildDockerfile.ConApp.csproj", "{BE7C9A7E-60FD-4BE1-8E27-94EBD2A716DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseCodeAdjustment", "BaseCodeAdjustment\BaseCodeAdjustment.csproj", "{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseCodeAdjustment", "BaseCodeAdjustment\BaseCodeAdjustment.csproj", "{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Watcher.Contracts", "Watcher.Contracts\Watcher.Contracts.csproj", "{8E9C9390-1F8C-4351-9CE9-509A2308E08D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Watcher.Logic", "Watcher.Logic\Watcher.Logic.csproj", "{918EA07A-A691-4EF0-A96D-525D1A7A22C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PathSynchronizer.ConApp", "PathSynchronizer.ConApp\PathSynchronizer.ConApp.csproj", "{D28CDC67-8D26-42A9-B3E3-45E987EED98E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileService.Contracts", "FileService.Contracts\FileService.Contracts.csproj", "{EE89B037-71FF-48C9-8F41-6E993B4622E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileService.Logic", "FileService.Logic\FileService.Logic.csproj", "{7D6429B0-F5C3-4E01-95B7-CD3A0C7EBBC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnSBaseCodeAdjustment.ConApp", "QnSBaseCodeAdjustment.ConApp\QnSBaseCodeAdjustment.ConApp.csproj", "{D2BAF5B7-0025-461E-BEFD-1EAE0D01E9DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnSGeneratedCodeDeleter.ConApp", "QnSGeneratedCodeDeleter.ConApp\QnSGeneratedCodeDeleter.ConApp.csproj", "{B4FE814C-75E9-49A6-92B9-384151C72C38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnSSolutionCopier.ConApp", "QnSSolutionCopier.ConApp\QnSSolutionCopier.ConApp.csproj", "{9FC0A75E-3194-44C1-8291-254793AA63F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +67,38 @@ Global
 		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F0A1C9F-B541-4343-B6F7-A0A35CCA4631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E9C9390-1F8C-4351-9CE9-509A2308E08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E9C9390-1F8C-4351-9CE9-509A2308E08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E9C9390-1F8C-4351-9CE9-509A2308E08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E9C9390-1F8C-4351-9CE9-509A2308E08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918EA07A-A691-4EF0-A96D-525D1A7A22C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918EA07A-A691-4EF0-A96D-525D1A7A22C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918EA07A-A691-4EF0-A96D-525D1A7A22C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918EA07A-A691-4EF0-A96D-525D1A7A22C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28CDC67-8D26-42A9-B3E3-45E987EED98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28CDC67-8D26-42A9-B3E3-45E987EED98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28CDC67-8D26-42A9-B3E3-45E987EED98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28CDC67-8D26-42A9-B3E3-45E987EED98E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE89B037-71FF-48C9-8F41-6E993B4622E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE89B037-71FF-48C9-8F41-6E993B4622E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE89B037-71FF-48C9-8F41-6E993B4622E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE89B037-71FF-48C9-8F41-6E993B4622E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D6429B0-F5C3-4E01-95B7-CD3A0C7EBBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D6429B0-F5C3-4E01-95B7-CD3A0C7EBBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D6429B0-F5C3-4E01-95B7-CD3A0C7EBBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D6429B0-F5C3-4E01-95B7-CD3A0C7EBBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BAF5B7-0025-461E-BEFD-1EAE0D01E9DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BAF5B7-0025-461E-BEFD-1EAE0D01E9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BAF5B7-0025-461E-BEFD-1EAE0D01E9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BAF5B7-0025-461E-BEFD-1EAE0D01E9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4FE814C-75E9-49A6-92B9-384151C72C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4FE814C-75E9-49A6-92B9-384151C72C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4FE814C-75E9-49A6-92B9-384151C72C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4FE814C-75E9-49A6-92B9-384151C72C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC0A75E-3194-44C1-8291-254793AA63F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC0A75E-3194-44C1-8291-254793AA63F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC0A75E-3194-44C1-8291-254793AA63F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC0A75E-3194-44C1-8291-254793AA63F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@ namespace DevelopCommon
     public static partial class Solution
     {
         public static string[] CommonProjects { get; } = new string[] { "CommonBase", "CSharpCodeGenerator.ConApp" };
-        public static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters", ".AspMvc", ".ConApp" };
+        public static string[] ProjectExtensions { get; } = new string[] { ".Contracts", ".Logic", ".Transfer", ".WebApi", ".Adapters", ".AspMvc", ".BlazorApp", ".ConApp" };
 
         public static IEnumerable<string> GetAppSettings(string path)
         {
